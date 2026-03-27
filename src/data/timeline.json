@@ -1,0 +1,108 @@
+[
+  {
+    "month": "January",
+    "year": 2025,
+    "id": "JAN_25",
+    "entries": [
+      {
+        "id": "JAN_01",
+        "category": "MENU",
+        "title": "Winter Tasting Menu Launches",
+        "description": "New seasonal menu featuring winter herbs, roasted vegetables, and warm spices.",
+        "image": "/images/jan-01.jpg",
+        "link": "/cafe"
+      },
+      {
+        "id": "JAN_02",
+        "category": "SPECIAL",
+        "title": "Holiday Extended Hours",
+        "description": "Open late through January for holiday celebrations and gatherings.",
+        "link": null
+      }
+    ]
+  },
+  {
+    "month": "February",
+    "year": 2025,
+    "id": "FEB_25",
+    "entries": [
+      {
+        "id": "FEB_01",
+        "category": "COLLABORATION",
+        "title": "Local Pastry Chef Collab",
+        "description": "Featuring fresh pastries from renowned local baker, available daily.",
+        "link": null
+      },
+      {
+        "id": "FEB_02",
+        "category": "SPECIAL",
+        "title": "Valentine's Dinner Series",
+        "description": "Three-course special dinners. Reservations now open.",
+        "link": "/contact"
+      }
+    ]
+  },
+  {
+    "month": "March",
+    "year": 2025,
+    "id": "MAR_25",
+    "entries": [
+      {
+        "id": "MAR_01",
+        "category": "MENU",
+        "title": "Spring Menu Preview",
+        "description": "Fresh spring ingredients, light flavors, and garden-fresh preparations.",
+        "link": "/cafe"
+      }
+    ]
+  },
+  {
+    "month": "April",
+    "year": 2025,
+    "id": "APR_25",
+    "entries": [
+      {
+        "id": "APR_01",
+        "category": "EVENT",
+        "title": "Spring Garden Brunch Series",
+        "description": "Weekly outdoor brunch with live acoustic music and local ingredients.",
+        "link": null
+      }
+    ]
+  },
+  {
+    "month": "May",
+    "year": 2025,
+    "id": "MAY_25",
+    "entries": [
+      {
+        "id": "MAY_01",
+        "category": "SPECIAL",
+        "title": "Coffee Sourcing Trip Updates",
+        "description": "Sharing stories and new single-origin beans from our spring harvest visit.",
+        "link": null
+      }
+    ]
+  },
+  {
+    "month": "June",
+    "year": 2025,
+    "id": "JUN_25",
+    "entries": [
+      {
+        "id": "JUN_01",
+        "category": "MENU",
+        "title": "Summer Menu Launch",
+        "description": "Cold brews, light salads, refreshing beverages, and outdoor seating.",
+        "link": "/cafe"
+      },
+      {
+        "id": "JUN_02",
+        "category": "COLLABORATION",
+        "title": "Artisan Ice Cream Partnership",
+        "description": "Exclusive flavors created with local ice cream makers.",
+        "link": null
+      }
+    ]
+  }
+]
