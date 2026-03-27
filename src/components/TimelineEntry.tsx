@@ -15,66 +15,34 @@ export const TimelineEntry: React.FC<TimelineEntryProps> = ({
   title,
   description,
   link,
-  image,
 }) => {
-  const categoryColors: { [key: string]: string } = {
-    MENU: 'bg-blue-100 text-blue-700',
-    SPECIAL: 'bg-purple-100 text-purple-700',
-    EVENT: 'bg-green-100 text-green-700',
-    COLLABORATION: 'bg-amber-100 text-amber-700',
-    BRAND: 'bg-pink-100 text-pink-700',
-    DIGITAL: 'bg-cyan-100 text-cyan-700',
-    MOTION: 'bg-red-100 text-red-700',
-  };
-
-  const categoryColor = categoryColors[category] || 'bg-gray-100 text-gray-700';
-
   return (
-    <div
-      className="group relative mb-8 border-l-2 border-gray-300 pl-6 transition-all duration-300 hover:border-gray-600 hover:pl-8"
-      id={id}
-    >
-      {/* Timeline dot */}
-      <div className="absolute -left-3 top-1 h-4 w-4 rounded-full bg-gray-900 ring-2 ring-white transition-all duration-300 group-hover:h-5 group-hover:w-5 group-hover:-left-3.5" />
-
-      {/* Category badge */}
-      <div className="mb-2 inline-block">
-        <span
-          className={`text-xs font-bold uppercase tracking-widest px-3 py-1 rounded transition-all duration-300 ${categoryColor}`}
-        >
-          {category}
-        </span>
+    <div className="mb-16 space-y-3 text-base leading-relaxed border-b border-gray-800 pb-16" id={id}>
+      {/* Category tag - yellow */}
+      <div className="text-xs uppercase tracking-widest text-yellow-400 font-black">
+        [{category}] [{id}]
       </div>
 
-      {/* Title */}
-      <h3 className="mb-2 text-lg font-semibold text-gray-900 transition-colors duration-300 group-hover:text-gray-700">
+      {/* Title - large and bold */}
+      <h3 className="text-2xl lg:text-3xl font-black text-white leading-tight">
         {title}
       </h3>
 
       {/* Description */}
-      <p className="mb-4 text-sm text-gray-600 leading-relaxed">
+      <p className="text-gray-300 text-base leading-relaxed">
         {description}
       </p>
 
-      {/* Image if available */}
-      {image && (
-        <div className="mb-3 overflow-hidden rounded">
-          <img
-            src={image}
-            alt={title}
-            className="h-40 w-full object-cover transition-transform duration-300 group-hover:scale-105"
-          />
-        </div>
-      )}
-
-      {/* Link button */}
+      {/* Link button if available */}
       {link && (
-        <a
-          href={link}
-          className="inline-flex items-center text-sm font-medium text-gray-900 underline transition-colors duration-300 hover:text-gray-600"
-        >
-          OPEN <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">+</span>
-        </a>
+        <div className="pt-3">
+          <a
+            href={link}
+            className="inline-flex items-center gap-1 text-yellow-400 font-black hover:text-yellow-300 transition-colors text-sm uppercase tracking-wide"
+          >
+            OPEN [+]
+          </a>
+        </div>
       )}
     </div>
   );

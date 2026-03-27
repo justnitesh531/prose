@@ -22,21 +22,19 @@ export const TimelineMonth: React.FC<TimelineMonthProps> = ({
   entries,
 }) => {
   return (
-    <section
-      className="scroll-mt-20 mb-16 py-12 transition-all duration-300"
-      id={id}
-    >
-      {/* Month header */}
-      <div className="mb-8 flex items-baseline gap-3 border-b-2 border-gray-200 pb-4">
-        <h2 className="text-4xl font-bold text-gray-900">{month}</h2>
-        <span className="text-lg text-gray-400 font-light">{year}</span>
-        <span className="text-xs uppercase tracking-widest text-gray-400 ml-auto">
-          [{id}]
-        </span>
+    <section className="mb-40 scroll-mt-8" id={id}>
+      {/* Month header - enormous and bold */}
+      <div className="mb-24 space-y-4">
+        <h2 className="text-8xl lg:text-9xl font-black text-white leading-none tracking-tight">
+          {month.toUpperCase()}
+        </h2>
+        <p className="text-sm uppercase tracking-widest text-yellow-400 font-black">
+          [{id}] {year}
+        </p>
       </div>
 
       {/* Entries */}
-      <div className="space-y-2">
+      <div className="space-y-0 max-w-5xl">
         {entries.map((entry) => (
           <TimelineEntry
             key={entry.id}
