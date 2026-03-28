@@ -1,0 +1,382 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #000;
+  --text: #fff;
+  --accent: #f5d64f;
+  --line: #333;
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.28;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.timeline-page {
+  position: relative;
+  min-height: 100vh;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.scroll-spacer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 400vh;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.progress-indicator {
+  position: fixed;
+  left: 0.7rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 30;
+  font-family: var(--font-mono), ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #999;
+}
+
+.timeline-wrap {
+  position: fixed;
+  z-index: 2;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.horizontal-shell {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.horizontal-stage {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.horizontal-track {
+  display: flex;
+  width: max-content;
+  height: 100%;
+  position: relative;
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+.dotted-path {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 400px;
+  margin-top: -200px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0,50 C35,120 65,-20 100,50' fill='none' stroke='white' stroke-opacity='0.2' stroke-width='2' stroke-dasharray='2 3' vector-effect='non-scaling-stroke' /%3E%3C/svg%3E");
+  background-size: 100vw 400px;
+  background-repeat: repeat-x;
+  z-index: 0;
+  pointer-events: none;
+  animation: driftWave 8s linear infinite;
+}
+
+@keyframes driftWave {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -100vw;
+  }
+}
+
+.h-panel {
+  flex: 0 0 100vw;
+  min-width: 100vw;
+  height: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.utility-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #aaa;
+}
+
+.utility-row > div {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.utility-row a:hover {
+  color: #fff;
+}
+
+.intro-screen {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.intro-hero-grid {
+  position: relative;
+}
+
+.intro-title-wrap {
+  position: relative;
+}
+
+.intro-label {
+  font-size: 11px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 1rem;
+}
+
+.intro-block {
+  font-size: clamp(4rem, 15vw, 12rem);
+  text-transform: uppercase;
+  line-height: 0.85;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: -0.03em;
+}
+
+.intro-footer-row {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.intro-footer-row > a {
+  color: var(--accent);
+}
+
+.intro-scroll-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  color: var(--accent);
+}
+
+.intro-scroll-copy span:nth-child(2) {
+  font-size: 1.4rem;
+  text-transform: none;
+  line-height: 1.05;
+}
+
+.intro-scroll-copy span:nth-child(3) {
+  text-transform: none;
+  color: #888;
+}
+
+.month-section {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.month-header {
+  margin-bottom: 1.6rem;
+}
+
+.month-id {
+  color: #888;
+  font-size: 11px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.month-main {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: clamp(4rem, 12vw, 10rem);
+  text-transform: uppercase;
+  line-height: 0.82;
+  letter-spacing: -0.02em;
+  color: #ddd;
+}
+
+.month-intro {
+  margin-top: 0.8rem;
+  font-size: clamp(1.4rem, 3vw, 2.5rem);
+  max-width: 980px;
+  line-height: 0.98;
+  color: #aaa;
+}
+
+.month-entries {
+  margin-top: 2rem;
+  max-width: 980px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.entry-item {
+  border: 1px solid var(--line);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.entry-meta {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #888;
+  margin-bottom: 0.5rem;
+}
+
+.entry-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.entry-description {
+  color: #aaa;
+  margin-bottom: 1rem;
+}
+
+.entry-link-wrap {
+  text-align: right;
+}
+
+.entry-link {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.end-state {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #888;
+}
+
+.end-state h2 {
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 900px) {
+  .timeline-wrap {
+    width: calc(100% - 1.4rem);
+    padding-bottom: 4rem;
+  }
+
+  .utility-row {
+    grid-template-columns: 1fr;
+    gap: 0.45rem;
+  }
+
+  .progress-indicator {
+    left: 0.3rem;
+    font-size: 10px;
+  }
+
+  .intro-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .intro-title-wrap {
+    min-height: 34vh;
+  }
+
+  .intro-label {
+    top: 0;
+    left: 0;
+  }
+
+  .intro-echo,
+  .intro-main {
+    left: 0;
+    top: 1.8rem;
+  }
+
+  .intro-main {
+    top: 4.8rem;
+  }
+
+  .intro-year {
+    left: 0;
+    top: 9.9rem;
+  }
+
+  .intro-gif-screen {
+    min-height: 250px;
+  }
+
+  .intro-footer-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .intro-scroll-copy {
+    align-items: flex-start;
+  }
+
+  .month-section {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+  }
+}
