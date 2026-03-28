@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Prose Café | Where craftsmanship meets community",
-  description: "Prose Café showcases our seasonal menus, special events, and collaborations. Join us for exceptional coffee and community.",
+  title: "Prose Studio | Year In Review 2025",
+  description:
+    "Prose Studio timeline featuring launches, works in progress, and case highlights across 2025.",
 };
 
 export default function RootLayout({

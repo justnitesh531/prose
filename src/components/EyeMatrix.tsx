@@ -20,49 +20,44 @@ export const EyeMatrix: React.FC = () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Matrix-like eyes animation
-    const eyeSize = 20;
-    const spacing = 60;
+    const chars = 'UNSEENPROSESTUDIO';
+    const spacing = 14;
+    const pointer = { x: canvas.width * 0.5, y: canvas.height * 0.35 };
     let animationId: number;
 
+    const movePointer = (event: MouseEvent) => {
+      pointer.x = event.clientX;
+      pointer.y = event.clientY;
+    };
+    window.addEventListener('mousemove', movePointer);
+
     const animate = () => {
-      // Clear with slight fade
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.02)';
+      ctx.fillStyle = 'rgba(217, 217, 217, 0.16)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      // Draw eyes
-      ctx.fillStyle = 'rgba(255, 255, 0, 0.15)';
-      ctx.strokeStyle = 'rgba(255, 255, 0, 0.25)';
-      ctx.lineWidth = 1;
-
       const time = Date.now() * 0.0005;
-
+      ctx.font = '10px ui-monospace, Menlo, Monaco, Consolas, monospace';
       for (let x = 0; x < canvas.width; x += spacing) {
         for (let y = 0; y < canvas.height; y += spacing) {
-          // Eyes
-          const angle = Math.atan2(Math.sin(time + y * 0.01), Math.cos(time + x * 0.01));
-          const pupilOffsetX = Math.cos(angle) * 5;
-          const pupilOffsetY = Math.sin(angle) * 5;
+          const index = Math.floor((x * 0.7 + y * 0.3 + time * 100) % chars.length);
+          const char = chars[index];
+          const dx = x - pointer.x;
+          const dy = y - pointer.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          const influence = Math.max(0, 1 - dist / 260);
+          const alpha = 0.05 + influence * 0.4;
 
-          // Draw eye white
-          ctx.beginPath();
-          ctx.arc(x, y, eyeSize, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.stroke();
-
-          // Draw pupil
-          ctx.fillStyle = 'rgba(0, 0, 0, 0.6)';
-          ctx.beginPath();
-          ctx.arc(x + pupilOffsetX, y + pupilOffsetY, eyeSize * 0.4, 0, Math.PI * 2);
-          ctx.fill();
-
-          // Glint
-          ctx.fillStyle = 'rgba(255, 255, 0, 0.5)';
-          ctx.beginPath();
-          ctx.arc(x + pupilOffsetX + 3, y + pupilOffsetY - 3, eyeSize * 0.15, 0, Math.PI * 2);
-          ctx.fill();
+          ctx.fillStyle = `rgba(41, 41, 41, ${(alpha * 0.45).toFixed(3)})`;
+          ctx.fillText(char, x, y);
         }
       }
+
+      const halo = ctx.createRadialGradient(pointer.x, pointer.y, 8, pointer.x, pointer.y, 180);
+      halo.addColorStop(0, 'rgba(52, 52, 52, 0.16)');
+      halo.addColorStop(1, 'rgba(52, 52, 52, 0)');
+      ctx.fillStyle = halo;
+      ctx.beginPath();
+      ctx.arc(pointer.x, pointer.y, 180, 0, Math.PI * 2);
+      ctx.fill();
 
       animationId = requestAnimationFrame(animate);
     };
@@ -72,13 +67,14 @@ export const EyeMatrix: React.FC = () => {
     return () => {
       cancelAnimationFrame(animationId);
       window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener('mousemove', movePointer);
     };
   }, []);
 
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-0 opacity-20"
+      className="fixed inset-0 pointer-events-none z-0 opacity-45"
       style={{ background: 'transparent' }}
     />
   );

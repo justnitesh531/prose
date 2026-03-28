@@ -1,19 +1,19 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { TimelineMonth } from './TimelineMonth';
+import React, { useEffect, useState } from 'react';
 import { EyeMatrix } from './EyeMatrix';
 
 interface TimelineData {
   month: string;
   year: number;
   id: string;
+  intro: string;
   entries: Array<{
     id: string;
     category: string;
+    kicker?: string;
     title: string;
     description: string;
-    image?: string;
     link?: string | null;
   }>;
 }
@@ -23,109 +23,131 @@ interface TimelineProps {
 }
 
 export const Timeline: React.FC<TimelineProps> = ({ data }) => {
+  const [trackX, setTrackX] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  // Update scroll progress
   useEffect(() => {
     const handleScroll = () => {
-      const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrolled = (window.scrollY / windowHeight) * 100;
-      setScrollProgress(Math.min(scrolled, 100));
+      const doc = document.documentElement;
+      
+      // Calculate scrollable bounds
+      const maxScrollY = doc.scrollHeight - window.innerHeight;
+      const currentScrollY = window.scrollY;
+      
+      // Calculate progress percentage (0 to 1)
+      const scrollPercentage = maxScrollY > 0 ? currentScrollY / maxScrollY : 0;
+      setScrollProgress(Math.min(scrollPercentage * 100, 100));
+
+      const track = document.querySelector('.horizontal-track') as HTMLElement;
+      if (track) {
+        const trackWidth = track.scrollWidth;
+        const viewportWidth = window.innerWidth;
+        const maxScrollX = Math.max(0, trackWidth - viewportWidth);
+        const translateX = -(scrollPercentage * maxScrollX);
+        setTrackX(translateX);
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial calculation
+    
+    // Recalculate on resize
+    window.addEventListener('resize', handleScroll);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
   }, []);
 
   return (
-    <div className="relative w-full bg-black text-white">
-      {/* Eye matrix background animation */}
-      <EyeMatrix />
+    <>
+      <div className="timeline-page">
+        <EyeMatrix />
 
-      {/* Scroll progress indicator - Yellow */}
-      <div className="fixed left-6 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-4 pointer-events-none">
-        <div className="text-xs font-black text-yellow-400 tabular-nums tracking-widest">
-          [{Math.round(scrollProgress).toString().padStart(2, '0')}%]
-        </div>
-      </div>
-
-      {/* Timeline content - ensure it's above the eye matrix */}
-      <div className="relative z-10 max-w-6xl mx-auto px-8 lg:px-16 py-32 lg:py-40">
-        {/* Header - Unseen style */}
-        <div className="mb-40 space-y-12">
-          <div className="space-y-6">
-            <div className="text-sm uppercase tracking-widest text-yellow-400 font-black">
-              [PROSE_25]
-            </div>
-            <div>
-              <h1 className="text-7xl lg:text-8xl font-black leading-none text-white mb-6">
-                SCROLL
-              </h1>
-              <p className="text-6xl lg:text-7xl font-black text-yellow-400">
-                This way <span className="text-white">↓</span>
-              </p>
-            </div>
-            <p className="text-lg text-gray-300 pt-4 max-w-3xl">
-              To see the things we made.
-            </p>
+        <div className="progress-indicator" aria-hidden="true">
+          <div>
+            [{Math.round(scrollProgress).toString().padStart(2, '0')}%]
           </div>
         </div>
 
-        {/* Months */}
-        {data.map((item) => (
-          <TimelineMonth
-            key={item.id}
-            month={item.month}
-            year={item.year}
-            id={item.id}
-            entries={item.entries}
-          />
-        ))}
+        <main className="timeline-wrap">
+          <div className="horizontal-shell">
+            <div className="horizontal-stage">
+              <div className="horizontal-track" style={{ transform: `translate3d(${trackX}px, 0, 0)` }}>
+                {/* Dotted path connecting the panels */}
+                <div className="dotted-path" aria-hidden="true" />
 
-        {/* End marker */}
-        <div className="mt-48 pt-40 border-t border-gray-700 space-y-8">
-          <h2 className="text-7xl lg:text-8xl font-black text-white leading-none">
-            STAY TUNED
-          </h2>
-          <p className="text-lg text-gray-300 max-w-3xl">
-            Watch this space for more exciting things coming from Prose Café in 2025.
-          </p>
-          <div className="pt-8 space-y-4">
-            <p className="text-sm uppercase tracking-widest text-yellow-400 font-black">
-              [2026]
-            </p>
-            <p className="text-gray-400">
-              We're excited to see what next year brings.
-            </p>
-          </div>
-        </div>
+                <section className="h-panel intro-screen">
+                  <header className="utility-row">
+                    <p>[P_S_25]</p>
+                    <a href="https://www.prose.co.in/" target="_blank" rel="noreferrer">
+                      Prose Studio®
+                    </a>
+                    <div>
+                      <a href="#" aria-label="X">[X]</a>
+                      <a href="#" aria-label="Instagram">[IG]</a>
+                      <a href="#" aria-label="LinkedIn">[LI]</a>
+                    </div>
+                  </header>
 
-        {/* Footer info */}
-        <div className="mt-48 pt-16 border-t border-gray-700 flex flex-col gap-12">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-16">
-            <div>
-              <p className="text-xs uppercase tracking-widest text-yellow-400 font-black mb-3">PROSE CAFÉ</p>
-              <p className="text-sm text-gray-400">Bangalore, India</p>
-            </div>
-            <div>
-              <p className="text-xs uppercase tracking-widest text-yellow-400 font-black mb-3">SOCIAL</p>
-              <div className="flex flex-col gap-2 text-sm text-gray-400">
-                <a href="#" className="hover:text-yellow-400">Instagram</a>
-                <a href="#" className="hover:text-yellow-400">Twitter</a>
+                  <div className="intro-hero-grid">
+                    <div className="intro-title-wrap">
+                      <p className="intro-label">YEAR IN REVIEW</p>
+                      <h1 className="intro-block intro-block--a">PROSE</h1>
+                      <h1 className="intro-block intro-block--b">STUDIO</h1>
+                    </div>
+                  </div>
+
+                  <div className="intro-footer-row">
+                    <a href="mailto:projects@prose.co.in">[START A PROJECT WITH US]</a>
+                    <div className="intro-scroll-copy">
+                      <span>[SCROLL]</span>
+                      <span>This way ↓</span>
+                      <span>To see the things we made.</span>
+                    </div>
+                  </div>
+                </section>
+
+                {data.map((item) => (
+                  <section className="h-panel month-section" key={item.id} id={item.id}>
+                     <header className="month-header">
+                        <p className="month-id">[{item.id}]</p>
+                        <h2 className="month-main">{item.month.toUpperCase()}</h2>
+                        <p className="month-intro">{item.intro}</p>
+                      </header>
+                    <div className="month-entries">
+                      {item.entries.map((entry) => (
+                        <article key={entry.id} className="entry-item" id={entry.id}>
+                          <div className="entry-meta">[{entry.category}] [{entry.kicker ?? item.id}]</div>
+                          <h3 className="entry-title">{entry.title}</h3>
+                          <p className="entry-description">{entry.description}</p>
+                          {entry.link ? (
+                            <div className="entry-link-wrap">
+                              <a href={entry.link} className="entry-link" target="_blank" rel="noreferrer">
+                                OPEN [+]
+                              </a>
+                            </div>
+                          ) : null}
+                        </article>
+                      ))}
+                    </div>
+                  </section>
+                ))}
+
+                <section className="h-panel end-state">
+                  <h2>STAY TUNED</h2>
+                  <p>WATCH THIS SPACE FOR OUR NEXT LAUNCH.</p>
+                  <p>[2026]</p>
+                </section>
               </div>
             </div>
-            <div>
-              <p className="text-xs uppercase tracking-widest text-yellow-400 font-black mb-3">CONTACT</p>
-              <a href="/contact" className="text-sm text-gray-400 hover:text-yellow-400">Get in touch</a>
-            </div>
           </div>
-          
-          <div className="border-t border-gray-700 pt-8 flex justify-between items-center text-xs text-gray-500">
-            <p>© 2025</p>
-            <p>Prose Café</p>
-          </div>
-        </div>
+        </main>
       </div>
-    </div>
+
+      {/* Invisible scrollbar element to enable page scrolling */}
+      <div className="scroll-spacer" />
+    </>
   );
 };

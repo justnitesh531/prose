@@ -3,7 +3,7 @@ import timelineData from '@/data/timeline.json';
 
 export default function Home() {
   return (
-    <div className="min-h-screen w-full bg-black text-white font-sans">
+    <div className="min-h-screen w-full font-sans">
       {/* Main timeline */}
       <Timeline data={timelineData} />
     </div>

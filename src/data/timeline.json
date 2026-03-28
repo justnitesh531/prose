@@ -3,20 +3,22 @@
     "month": "January",
     "year": 2025,
     "id": "JAN_25",
+    "intro": "Starting the year with concept films and campaign tests for streaming and lifestyle clients.",
     "entries": [
       {
         "id": "JAN_01",
-        "category": "MENU",
-        "title": "Winter Tasting Menu Launches",
-        "description": "New seasonal menu featuring winter herbs, roasted vegetables, and warm spices.",
-        "image": "/images/jan-01.jpg",
-        "link": "/cafe"
+        "category": "FILM",
+        "kicker": "[JAN_25]",
+        "title": "An exploration of motion language through a precise, technical aesthetic.",
+        "description": "Early visual studies for a new product film direction.",
+        "link": null
       },
       {
         "id": "JAN_02",
-        "category": "SPECIAL",
-        "title": "Holiday Extended Hours",
-        "description": "Open late through January for holiday celebrations and gatherings.",
+        "category": "EDIT",
+        "kicker": "[JAN_25]",
+        "title": "Cutting first narrative boards for an automotive social launch.",
+        "description": "Fast-turn edit experiments to test pacing and hook density.",
         "link": null
       }
     ]
@@ -25,20 +27,23 @@
     "month": "February",
     "year": 2025,
     "id": "FEB_25",
+    "intro": "A month focused on director-led tests and post workflows.",
     "entries": [
       {
         "id": "FEB_01",
-        "category": "COLLABORATION",
-        "title": "Local Pastry Chef Collab",
-        "description": "Featuring fresh pastries from renowned local baker, available daily.",
+        "category": "DIRECTING",
+        "kicker": "[FEB_25]",
+        "title": "Motion experiments led by our film director Nathan.",
+        "description": "Camera movement prototypes for dialogue-free storytelling.",
         "link": null
       },
       {
         "id": "FEB_02",
-        "category": "SPECIAL",
-        "title": "Valentine's Dinner Series",
-        "description": "Three-course special dinners. Reservations now open.",
-        "link": "/contact"
+        "category": "POST",
+        "kicker": "[FEB_25]",
+        "title": "Color pipeline stress tests for mixed-camera shoots.",
+        "description": "Built a grading baseline for fast campaign turnaround.",
+        "link": null
       }
     ]
   },
@@ -46,13 +51,23 @@
     "month": "March",
     "year": 2025,
     "id": "MAR_25",
+    "intro": "Production month: two campaign shoots and one documentary short in parallel.",
     "entries": [
       {
         "id": "MAR_01",
-        "category": "MENU",
-        "title": "Spring Menu Preview",
-        "description": "Fresh spring ingredients, light flavors, and garden-fresh preparations.",
-        "link": "/cafe"
+        "category": "DOCU",
+        "kicker": "[MAR_25]",
+        "title": "Principal photography begins on an athlete-led mini documentary.",
+        "description": "Captured long-form interviews and location b-roll across three cities.",
+        "link": null
+      },
+      {
+        "id": "MAR_02",
+        "category": "FILM",
+        "kicker": "[MAR_25]",
+        "title": "Our retail campaign goes live.",
+        "description": "A high-energy launch film designed for paid social and cinema cuts.",
+        "link": "https://www.prose.co.in/"
       }
     ]
   },
@@ -60,12 +75,22 @@
     "month": "April",
     "year": 2025,
     "id": "APR_25",
+    "intro": "From set to post: shaping the strongest stories from intense production weeks.",
     "entries": [
       {
         "id": "APR_01",
-        "category": "EVENT",
-        "title": "Spring Garden Brunch Series",
-        "description": "Weekly outdoor brunch with live acoustic music and local ingredients.",
+        "category": "VFX",
+        "kicker": "[APR_25]",
+        "title": "Early compositing tests for a product reveal sequence.",
+        "description": "Combining practical footage and digital overlays for a surreal finish.",
+        "link": null
+      },
+      {
+        "id": "APR_02",
+        "category": "EDIT",
+        "kicker": "[APR_25]",
+        "title": "Long-form edit lock for a founder story film.",
+        "description": "Trimmed to a concise three-minute narrative with social cutdowns.",
         "link": null
       }
     ]
@@ -74,12 +99,22 @@
     "month": "May",
     "year": 2025,
     "id": "MAY_25",
+    "intro": "Concept development month with identity films and visual territory pitches.",
     "entries": [
       {
         "id": "MAY_01",
-        "category": "SPECIAL",
-        "title": "Coffee Sourcing Trip Updates",
-        "description": "Sharing stories and new single-origin beans from our spring harvest visit.",
+        "category": "BRAND FILM",
+        "kicker": "[MAY_25]",
+        "title": "Brand narrative exploration for a wellness launch.",
+        "description": "Developed scripts and frame tests across three creative directions.",
+        "link": null
+      },
+      {
+        "id": "MAY_02",
+        "category": "PITCH",
+        "kicker": "[MAY_25]",
+        "title": "Visual treatment approved for summer campaign production.",
+        "description": "Moving from moodboard to full production prep.",
         "link": null
       }
     ]
@@ -88,19 +123,166 @@
     "month": "June",
     "year": 2025,
     "id": "JUN_25",
+    "intro": "Campaign delivery month with multiple releases landing across platforms.",
     "entries": [
       {
         "id": "JUN_01",
-        "category": "MENU",
-        "title": "Summer Menu Launch",
-        "description": "Cold brews, light salads, refreshing beverages, and outdoor seating.",
-        "link": "/cafe"
+        "category": "FILM",
+        "kicker": "[JUN_25]",
+        "title": "The summer launch film premieres.",
+        "description": "Delivered hero edit, director's cut, and six short-form variations.",
+        "link": "https://www.prose.co.in/"
       },
       {
         "id": "JUN_02",
-        "category": "COLLABORATION",
-        "title": "Artisan Ice Cream Partnership",
-        "description": "Exclusive flavors created with local ice cream makers.",
+        "category": "COLOR",
+        "kicker": "[JUN_25]",
+        "title": "Finishing pass for a monochrome editorial series.",
+        "description": "Contrast-rich grade for premium digital and OOH playback.",
+        "link": null
+      }
+    ]
+  },
+  {
+    "month": "July",
+    "year": 2025,
+    "id": "JUL_25",
+    "intro": "Mid-year reset with R&D sprints and treatment-only weeks.",
+    "entries": [
+      {
+        "id": "JUL_01",
+        "category": "R&D",
+        "kicker": "[JUL_25]",
+        "title": "Testing virtual production workflows against practical setups.",
+        "description": "Comparative sprint to optimize cost, speed, and final look.",
+        "link": null
+      },
+      {
+        "id": "JUL_02",
+        "category": "MOTION",
+        "kicker": "[JUL_25]",
+        "title": "Title design explorations for a documentary opener.",
+        "description": "Typeface and kinetic timing studies for emotional impact.",
+        "link": null
+      }
+    ]
+  },
+  {
+    "month": "August",
+    "year": 2025,
+    "id": "AUG_25",
+    "intro": "Heavy production month as multiple projects move into shooting phase.",
+    "entries": [
+      {
+        "id": "AUG_01",
+        "category": "FILM",
+        "kicker": "[AUG_25]",
+        "title": "A month of ideas as a wave of projects begin.",
+        "description": "Three active sets and one remote unit shooting in parallel.",
+        "link": null
+      },
+      {
+        "id": "AUG_02",
+        "category": "POST",
+        "kicker": "[AUG_25]",
+        "title": "Building dailies system for faster creative review cycles.",
+        "description": "Near real-time review pipeline rolled out across all productions.",
+        "link": null
+      }
+    ]
+  },
+  {
+    "month": "September",
+    "year": 2025,
+    "id": "SEP_25",
+    "intro": "Creative development and style exploration for Q4 campaigns.",
+    "entries": [
+      {
+        "id": "SEP_01",
+        "category": "BRAND FILM",
+        "kicker": "[SEP_25]",
+        "title": "Brand visual design for a fintech campaign kicks off.",
+        "description": "Explored a wide mix of textures, lens language, and motion motifs.",
+        "link": null
+      },
+      {
+        "id": "SEP_02",
+        "category": "CASE",
+        "kicker": "[SEP_25]",
+        "title": "Published behind-the-scenes case study from summer productions.",
+        "description": "Shared process notes from treatment to final delivery.",
+        "link": "https://www.prose.co.in/"
+      }
+    ]
+  },
+  {
+    "month": "October",
+    "year": 2025,
+    "id": "OCT_25",
+    "intro": "Launches month: final films go public and campaigns start rolling out.",
+    "entries": [
+      {
+        "id": "OCT_01",
+        "category": "LAUNCH",
+        "kicker": "[OCT_25]",
+        "title": "Identity campaign goes live with long-form and social edits.",
+        "description": "Distributed across paid social, OOH, and broadcast channels.",
+        "link": "https://www.prose.co.in/"
+      },
+      {
+        "id": "OCT_02",
+        "category": "MOTION",
+        "kicker": "[OCT_25]",
+        "title": "Teaser animation released for a retail opening.",
+        "description": "Fast teaser built from production stills and custom typography.",
+        "link": null
+      }
+    ]
+  },
+  {
+    "month": "November",
+    "year": 2025,
+    "id": "NOV_25",
+    "intro": "Post-heavy month focused on refinements, re-cuts, and distribution assets.",
+    "entries": [
+      {
+        "id": "NOV_01",
+        "category": "EDIT",
+        "kicker": "[NOV_25]",
+        "title": "Second-wave campaign edits delivered for global rollout.",
+        "description": "Localized versions prepared for multilingual release windows.",
+        "link": null
+      },
+      {
+        "id": "NOV_02",
+        "category": "DIGITAL",
+        "kicker": "[NOV_25]",
+        "title": "Work with a product startup goes live.",
+        "description": "Launch bundle includes hero film, teasers, and founder short.",
+        "link": "https://www.prose.co.in/"
+      }
+    ]
+  },
+  {
+    "month": "December",
+    "year": 2025,
+    "id": "DEC_25",
+    "intro": "Closing the year with reports, recaps, and previews for what is next.",
+    "entries": [
+      {
+        "id": "DEC_01",
+        "category": "YEAR END",
+        "kicker": "[DEC_25]",
+        "title": "Annual report film delivered for a mission-driven client.",
+        "description": "A compact story combining archival footage, interviews, and data visuals.",
+        "link": null
+      },
+      {
+        "id": "DEC_02",
+        "category": "FILM",
+        "kicker": "[DEC_25]",
+        "title": "More motion to close out the year.",
+        "description": "Early treatments in motion for projects launching in Q1 2026.",
         "link": null
       }
     ]
