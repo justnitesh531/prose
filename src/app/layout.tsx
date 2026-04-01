@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Prose Studio | Year In Review 2025",
+  title: "Prose & Pixels Studio | Year In Review 2025",
   description:
-    "Prose Studio timeline featuring launches, works in progress, and case highlights across 2025.",
+    "Prose & Pixels Studio timeline featuring launches, works in progress, and case highlights across 2025.",
 };
 
 export default function RootLayout({

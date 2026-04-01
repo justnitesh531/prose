@@ -82,7 +82,7 @@ export const Timeline: React.FC<TimelineProps> = ({ data }) => {
                   <header className="utility-row">
                     <p>[P_S_25]</p>
                     <a href="https://www.prose.co.in/" target="_blank" rel="noreferrer">
-                      Prose Studio®
+                      Prose & Pixels Studio®
                     </a>
                     <div>
                       <a href="#" aria-label="X">[X]</a>
@@ -94,7 +94,7 @@ export const Timeline: React.FC<TimelineProps> = ({ data }) => {
                   <div className="intro-hero-grid">
                     <div className="intro-title-wrap">
                       <p className="intro-label">YEAR IN REVIEW</p>
-                      <h1 className="intro-block intro-block--a">PROSE</h1>
+                      <h1 className="intro-block intro-block--a">PROSE & PIXELS</h1>
                       <h1 className="intro-block intro-block--b">STUDIO</h1>
                     </div>
                   </div>
