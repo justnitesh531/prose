@@ -562,3 +562,107 @@ a {
 
   }
 }
+@media (max-width: 900px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  .scroll-spacer {
+    display: none;
+  }
+
+  .timeline-wrap {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .horizontal-shell,
+  .horizontal-stage {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .horizontal-track {
+    display: block;
+    width: 100%;
+    height: auto;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .intro-screen {
+    position: relative;
+    width: 100%;
+    min-height: 100svh;
+    height: auto;
+  }
+
+  .h-panel {
+    width: 100%;
+    height: auto;
+    min-height: auto;
+  }
+
+  .portfolio-section {
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    padding: 80px 20px;
+  }
+
+  .portfolio-inner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .portfolio-video-wrap {
+    width: 100%;
+    max-width: none;
+    aspect-ratio: 16 / 9;
+  }
+
+  .portfolio-video-wrap:hover {
+    transform: none;
+  }
+
+  .portfolio-text {
+    width: 100%;
+  }
+
+  .portfolio-title {
+    font-size: clamp(2rem, 10vw, 4rem);
+    line-height: 0.95;
+  }
+
+  .portfolio-desc {
+    max-width: 90%;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .portfolio-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+  }
+
+  .contact-section {
+    width: 100%;
+    min-height: 100svh;
+    padding: 80px 20px;
+  }
+
+  .dotted-path {
+    opacity: 0.35;
+  }
+
+  .progress-indicator {
+    display: none;
+  }
+}
