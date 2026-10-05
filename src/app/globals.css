@@ -562,7 +562,9 @@ a {
 
   }
 }
+
 @media (max-width: 900px) {
+
   html,
   body {
     overflow-x: hidden;
@@ -663,6 +665,450 @@ a {
   }
 
   .progress-indicator {
+    display: none;
+  }
+}
+
+/* ── MOBILE LAYOUT FIX ── */
+
+@media (max-width: 900px) {
+
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Turn the desktop horizontal system into a normal vertical page */
+  .timeline-wrap {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    padding: 0;
+  }
+
+  .horizontal-shell,
+  .horizontal-stage {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+
+  .horizontal-track {
+    display: block;
+    width: 100%;
+    height: auto;
+    transform: none !important;
+    filter: none !important;
+    will-change: auto;
+  }
+
+  /* Every panel becomes its own vertical section */
+  .h-panel {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    min-height: 100svh;
+    padding: 24px 20px;
+    box-sizing: border-box;
+    flex: none;
+  }
+
+  /* ── LANDING PAGE ── */
+
+  .intro-screen {
+    min-height: 100svh;
+    height: auto;
+    padding: 24px 20px 40px;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+  }
+
+  .utility-row {
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .intro-hero-grid {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .intro-title-wrap {
+    width: 100%;
+  }
+
+  .intro-label {
+    font-size: 10px;
+    margin-bottom: 12px;
+  }
+
+  .intro-block {
+    font-size: clamp(4rem, 18vw, 7rem);
+    line-height: 0.82;
+    letter-spacing: -0.02em;
+    word-break: normal;
+  }
+
+  .intro-footer-row {
+    position: static;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .intro-scroll-copy {
+    width: 100%;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .intro-scroll-copy span:nth-child(2) {
+    font-size: 1.1rem;
+  }
+
+  .intro-scroll-copy span:nth-child(3) {
+    max-width: 90%;
+    line-height: 1.4;
+  }
+
+  /* ── PROJECT SECTIONS ── */
+
+  .portfolio-section {
+    min-height: auto;
+    padding: 70px 20px 90px;
+    justify-content: flex-start;
+  }
+
+  .portfolio-inner {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0;
+    justify-content: flex-start;
+  }
+
+  .portfolio-video-wrap {
+    width: 100%;
+    max-width: none;
+    aspect-ratio: 16 / 9;
+    flex-shrink: 0;
+  }
+
+  .portfolio-video-wrap:hover {
+    transform: none;
+  }
+
+  .portfolio-text {
+    width: 100%;
+    max-width: none;
+    gap: 8px;
+  }
+
+  .portfolio-label {
+    font-size: 9px;
+  }
+
+  .portfolio-title {
+    font-size: clamp(2rem, 11vw, 3.5rem);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+  }
+
+  .portfolio-desc {
+    max-width: 100%;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  /* ── CONTACT / END PAGE ── */
+
+  .contact-section {
+    min-height: 100svh;
+    padding: 70px 20px;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .contact-inner {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    gap: 12px;
+  }
+
+  .month-id {
+    font-size: 10px;
+    margin-bottom: 8px;
+  }
+
+  .month-main {
+    font-size: clamp(2.8rem, 12vw, 5rem);
+    line-height: 0.9;
+    margin-bottom: 20px;
+  }
+
+  .contact-links {
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .contact-links a {
+    font-size: 0.95rem;
+  }
+
+  .contact-location {
+    margin-top: 20px;
+    font-size: 10px;
+  }
+
+  /* Hide desktop-only horizontal decorations */
+  .progress-indicator {
+    display: none;
+  }
+
+  .dotted-path {
+    opacity: 0.2;
+  }
+
+  .scroll-spacer {
+    display: none;
+  }
+}
+/* ── MOBILE LAYOUT FIX ── */
+
+@media (max-width: 900px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Turn the desktop horizontal system into a normal vertical page */
+  .timeline-wrap {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    padding: 0;
+  }
+
+  .horizontal-shell,
+  .horizontal-stage {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+
+  .horizontal-track {
+    display: block;
+    width: 100%;
+    height: auto;
+    transform: none !important;
+    filter: none !important;
+    will-change: auto;
+  }
+
+  /* Every panel becomes its own vertical section */
+  .h-panel {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    min-height: 100svh;
+    padding: 24px 20px;
+    box-sizing: border-box;
+    flex: none;
+  }
+
+  /* ── LANDING PAGE ── */
+
+  .intro-screen {
+    min-height: 100svh;
+    height: auto;
+    padding: 24px 20px 40px;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+  }
+
+  .utility-row {
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .intro-hero-grid {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .intro-title-wrap {
+    width: 100%;
+  }
+
+  .intro-label {
+    font-size: 10px;
+    margin-bottom: 12px;
+  }
+
+  .intro-block {
+    font-size: clamp(4rem, 18vw, 7rem);
+    line-height: 0.82;
+    letter-spacing: -0.02em;
+    word-break: normal;
+  }
+
+  .intro-footer-row {
+    position: static;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .intro-scroll-copy {
+    width: 100%;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .intro-scroll-copy span:nth-child(2) {
+    font-size: 1.1rem;
+  }
+
+  .intro-scroll-copy span:nth-child(3) {
+    max-width: 90%;
+    line-height: 1.4;
+  }
+
+  /* ── PROJECT SECTIONS ── */
+
+  .portfolio-section {
+    min-height: auto;
+    padding: 70px 20px 90px;
+    justify-content: flex-start;
+  }
+
+  .portfolio-inner {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0;
+    justify-content: flex-start;
+  }
+
+  .portfolio-video-wrap {
+    width: 100%;
+    max-width: none;
+    aspect-ratio: 16 / 9;
+    flex-shrink: 0;
+  }
+
+  .portfolio-video-wrap:hover {
+    transform: none;
+  }
+
+  .portfolio-text {
+    width: 100%;
+    max-width: none;
+    gap: 8px;
+  }
+
+  .portfolio-label {
+    font-size: 9px;
+  }
+
+  .portfolio-title {
+    font-size: clamp(2rem, 11vw, 3.5rem);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+  }
+
+  .portfolio-desc {
+    max-width: 100%;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  /* ── CONTACT / END PAGE ── */
+
+  .contact-section {
+    min-height: 100svh;
+    padding: 70px 20px;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .contact-inner {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    gap: 12px;
+  }
+
+  .month-id {
+    font-size: 10px;
+    margin-bottom: 8px;
+  }
+
+  .month-main {
+    font-size: clamp(2.8rem, 12vw, 5rem);
+    line-height: 0.9;
+    margin-bottom: 20px;
+  }
+
+  .contact-links {
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .contact-links a {
+    font-size: 0.95rem;
+  }
+
+  .contact-location {
+    margin-top: 20px;
+    font-size: 10px;
+  }
+
+  /* Hide desktop-only horizontal decorations */
+  .progress-indicator {
+    display: none;
+  }
+
+  .dotted-path {
+    opacity: 0.2;
+  }
+
+  .scroll-spacer {
     display: none;
   }
 }
