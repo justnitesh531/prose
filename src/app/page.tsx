@@ -1,11 +1,10 @@
 import { Timeline } from '@/components';
-import timelineData from '@/data/timeline.json';
+import portfolioData from '@/data/portfolio.json';
 
 export default function Home() {
   return (
     <div className="min-h-screen w-full font-sans">
-      {/* Main timeline */}
-      <Timeline data={timelineData} />
+      <Timeline data={portfolioData} />
     </div>
   );
 }

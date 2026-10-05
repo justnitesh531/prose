@@ -1,0 +1,44 @@
+[
+  {
+    "id": "showreel",
+    "label": "[01]",
+    "title": "SHOWREEL",
+    "description": "A curated showcase of our best work across brand films, corporate productions, and visual storytelling. 12 years of craft distilled into motion.",
+    "youtubeId": "E_-yv2XhUtk"
+  },
+  {
+    "id": "wells-fargo",
+    "label": "[02]",
+    "title": "WELLS FARGO",
+    "description": "Corporate brand communication for one of the world's largest financial institutions. A film built on precision, trust, and human clarity.",
+    "youtubeId": "U_t76ZLfZFM"
+  },
+  {
+    "id": "2d-animation",
+    "label": "[03]",
+    "title": "2D ANIMATION",
+    "description": "Motion design and 2D animation — bringing abstract ideas to life through frame-by-frame storytelling and visual rhythm.",
+    "youtubeId": "wiq5t1jYgvo"
+  },
+  {
+    "id": "gloplax",
+    "label": "[04]",
+    "title": "GLOPLAX",
+    "description": "Brand film for Gloplax — a clean, confident visual narrative built around product identity and market positioning.",
+    "youtubeId": "NFj3dPzj-zc"
+  },
+  {
+    "id": "vishesh-kalimero",
+    "label": "[05]",
+    "title": "VISHESH KALIMERO",
+    "description": "Music video for Vishesh Kalimero. A director-led creative piece exploring visual texture, atmosphere, and emotional pacing.",
+    "youtubeId": "Ro7SYCZ2vd0"
+  },
+  {
+    "id": "ensemble",
+    "label": "[06]",
+    "title": "ENSEMBLE HEALTH PARTNERS",
+    "description": "Anniversary employee recognition film for Ensemble Health Partners India. Celebrating people, culture, and collective achievement.",
+    "youtubeId": "wDmlrelcvYY"
+  }
+]
