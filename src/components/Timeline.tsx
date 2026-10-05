@@ -33,10 +33,10 @@ const AmbientAudio: React.FC = () => {
       oscillator.type = 'sine';
       oscillator.frequency.setValueAtTime(60, audioContext.currentTime);
       oscillator.frequency.setValueAtTime(65, audioContext.currentTime + 15);
-      
+
       gainNode.gain.setValueAtTime(0.02, audioContext.currentTime);
       gainNode.gain.setValueAtTime(0.015, audioContext.currentTime + 15);
-      
+
       filter.type = 'lowpass';
       filter.frequency.setValueAtTime(200, audioContext.currentTime);
 
@@ -45,7 +45,7 @@ const AmbientAudio: React.FC = () => {
       gainNode.connect(audioContext.destination);
 
       oscillator.start();
-      
+
       oscillatorRef.current = oscillator;
       gainRef.current = gainNode;
 
@@ -117,55 +117,55 @@ const FireflyAndBird: React.FC<{ scrollProgress: number }> = ({ scrollProgress }
       });
     };
 
-const drawBird = (x: number, y: number, wingPhase: number) => {
-  ctx.save();
-  ctx.translate(x, y);
-  ctx.strokeStyle = 'rgba(245, 214, 79, 0.6)';
-  ctx.fillStyle = 'rgba(245, 214, 79, 0.5)';
-  ctx.lineWidth = 1.5;
+    const drawBird = (x: number, y: number, wingPhase: number) => {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.strokeStyle = 'rgba(245, 214, 79, 0.6)';
+      ctx.fillStyle = 'rgba(245, 214, 79, 0.5)';
+      ctx.lineWidth = 1.5;
 
-  // Body
-  ctx.beginPath();
-  ctx.ellipse(0, 0, 8, 5, 0, 0, Math.PI * 2);
-  ctx.fill();
+      // Body
+      ctx.beginPath();
+      ctx.ellipse(0, 0, 8, 5, 0, 0, Math.PI * 2);
+      ctx.fill();
 
-  // Head
-  ctx.beginPath();
-  ctx.arc(7, -2, 3, 0, Math.PI * 2);
-  ctx.fill();
+      // Head
+      ctx.beginPath();
+      ctx.arc(7, -2, 3, 0, Math.PI * 2);
+      ctx.fill();
 
-  // Eye
-  ctx.fillStyle = 'rgba(245, 214, 79, 0.9)';
-  ctx.beginPath();
-  ctx.arc(9, -2, 1, 0, Math.PI * 2);
-  ctx.fill();
+      // Eye
+      ctx.fillStyle = 'rgba(245, 214, 79, 0.9)';
+      ctx.beginPath();
+      ctx.arc(9, -2, 1, 0, Math.PI * 2);
+      ctx.fill();
 
-  // Wings (animated with flapping motion)
-  ctx.strokeStyle = 'rgba(245, 214, 79, 0.4)';
-  const wingFlap = Math.sin(wingPhase) * 8; // Flap amplitude
-  const wingBend = Math.sin(wingPhase) * 0.4;
-  
-  // Left wing
-  ctx.beginPath();
-  ctx.moveTo(-2, -5 + wingFlap);
-  ctx.quadraticCurveTo(-5, -10 + wingFlap - wingBend, -8, -8 + wingFlap);
-  ctx.stroke();
-  
-  // Right wing
-  ctx.beginPath();
-  ctx.moveTo(-2, 5 - wingFlap);
-  ctx.quadraticCurveTo(-5, 10 - wingFlap + wingBend, -8, 8 - wingFlap);
-  ctx.stroke();
+      // Wings (animated with flapping motion)
+      ctx.strokeStyle = 'rgba(245, 214, 79, 0.4)';
+      const wingFlap = Math.sin(wingPhase) * 8; // Flap amplitude
+      const wingBend = Math.sin(wingPhase) * 0.4;
 
-  // Tail
-  ctx.strokeStyle = 'rgba(245, 214, 79, 0.6)';
-  ctx.beginPath();
-  ctx.moveTo(-8, 0);
-  ctx.lineTo(-14, 2);
-  ctx.stroke();
+      // Left wing
+      ctx.beginPath();
+      ctx.moveTo(-2, -5 + wingFlap);
+      ctx.quadraticCurveTo(-5, -10 + wingFlap - wingBend, -8, -8 + wingFlap);
+      ctx.stroke();
 
-  ctx.restore();
-};
+      // Right wing
+      ctx.beginPath();
+      ctx.moveTo(-2, 5 - wingFlap);
+      ctx.quadraticCurveTo(-5, 10 - wingFlap + wingBend, -8, 8 - wingFlap);
+      ctx.stroke();
+
+      // Tail
+      ctx.strokeStyle = 'rgba(245, 214, 79, 0.6)';
+      ctx.beginPath();
+      ctx.moveTo(-8, 0);
+      ctx.lineTo(-14, 2);
+      ctx.stroke();
+
+      ctx.restore();
+    };
 
     let frame = 0;
     const animate = () => {
@@ -232,25 +232,33 @@ const drawBird = (x: number, y: number, wingPhase: number) => {
   );
 };
 
-const PortfolioSection: React.FC<PortfolioItem> = ({ id, label, title, description, youtubeId }) => (
-  <section className="h-panel portfolio-section" id={id}>
-    <div className="portfolio-inner">
-      <div className="portfolio-video-wrap">
-        <iframe
-          src={`https://www.youtube.com/embed/${youtubeId}?rel=0&modestbranding=1`}
-          title={title}
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
-      </div>
-      <div className="portfolio-text">
-        <p className="portfolio-label">{label}</p>
-        <h2 className="portfolio-title">{title}</h2>
-        <p className="portfolio-desc">{description}</p>
-      </div>
+const PortfolioSection: React.FC<PortfolioItem & { index: number }> = ({
+  id,
+  label,
+  title,
+  description,
+  youtubeId,
+  index,
+}) => (<section className="h-panel portfolio-section" id={id}>
+  <div className="portfolio-inner">
+    <div className="portfolio-video-wrap">
+      <iframe
+        src={`https://www.youtube.com/embed/${youtubeId}?rel=0&modestbranding=1`}
+        title={title}
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      />
     </div>
-  </section>
+    <div className="portfolio-text">
+      <p className="portfolio-label">
+        [{String(index + 1).padStart(2, '0')}] {label}
+      </p>
+      <h2 className="portfolio-title">{title}</h2>
+      <p className="portfolio-desc">{description}</p>
+    </div>
+  </div>
+</section>
 );
 
 const ContactSection: React.FC = () => (
@@ -272,26 +280,68 @@ const ContactSection: React.FC = () => (
 
 export const Timeline: React.FC<TimelineProps> = ({ data }) => {
   const [trackX, setTrackX] = useState(0);
+  const [isScrolling, setIsScrolling] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
+    let targetX = 0;
+    let currentX = 0;
+    let animationFrame = 0;
+
     const handleScroll = () => {
+      setIsScrolling(true);
+
+      clearTimeout((handleScroll as any).scrollTimeout);
+
+      (handleScroll as any).scrollTimeout = setTimeout(() => {
+        setIsScrolling(false);
+      }, 120);
       const doc = document.documentElement;
       const maxScrollY = doc.scrollHeight - window.innerHeight;
-      const scrollPercentage = maxScrollY > 0 ? window.scrollY / maxScrollY : 0;
+
+      const scrollPercentage =
+        maxScrollY > 0 ? window.scrollY / maxScrollY : 0;
+
       setScrollProgress(Math.min(scrollPercentage * 100, 100));
-      const track = document.querySelector('.horizontal-track') as HTMLElement;
+
+      const track = document.querySelector(
+        '.horizontal-track'
+      ) as HTMLElement;
+
       if (track) {
-        const maxScrollX = Math.max(0, track.scrollWidth - window.innerWidth);
-        setTrackX(-(scrollPercentage * maxScrollX));
+        const maxScrollX = Math.max(
+          0,
+          track.scrollWidth - window.innerWidth
+        );
+
+        targetX = -(scrollPercentage * maxScrollX);
       }
     };
+
+    const animate = () => {
+      const distance = targetX - currentX;
+
+      currentX += distance * 0.10;
+
+      if (Math.abs(distance) < 0.1) {
+        currentX = targetX;
+      }
+
+      setTrackX(currentX);
+
+      animationFrame = requestAnimationFrame(animate);
+    };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', handleScroll);
+
     handleScroll();
+    animate();
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);
+      cancelAnimationFrame(animationFrame);
     };
   }, []);
 
@@ -311,7 +361,10 @@ export const Timeline: React.FC<TimelineProps> = ({ data }) => {
             <div className="horizontal-stage">
               <div
                 className="horizontal-track"
-                style={{ transform: `translate3d(${trackX}px, 0, 0)` }}
+                style={{
+                  transform: `translate3d(${trackX}px, 0, 0)`,
+                  filter: isScrolling ? 'blur(0.2px)' : 'blur(0px)',
+                }}
               >
                 <div className="dotted-path" aria-hidden="true" />
 

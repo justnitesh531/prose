@@ -101,7 +101,6 @@ a {
   height: 100%;
   position: relative;
   will-change: transform;
-  transition: transform 0.1s ease-out;
 }
 
 /* ── Dotted path ── */
@@ -122,8 +121,13 @@ a {
 }
 
 @keyframes driftWave {
-  from { background-position-x: 0; }
-  to   { background-position-x: -100vw; }
+  from {
+    background-position-x: 0;
+  }
+
+  to {
+    background-position-x: -100vw;
+  }
 }
 
 /* ── Panel base ── */
@@ -153,8 +157,14 @@ a {
   color: #aaa;
 }
 
-.utility-row > div { display: flex; gap: 0.6rem; }
-.utility-row a:hover { color: #fff; }
+.utility-row>div {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.utility-row a:hover {
+  color: #fff;
+}
 
 /* ── Intro panel ── */
 
@@ -164,8 +174,13 @@ a {
   text-align: center;
 }
 
-.intro-hero-grid { position: relative; }
-.intro-title-wrap { position: relative; }
+.intro-hero-grid {
+  position: relative;
+}
+
+.intro-title-wrap {
+  position: relative;
+}
 
 .intro-label {
   font-size: 11px;
@@ -199,7 +214,9 @@ a {
   text-transform: uppercase;
 }
 
-.intro-footer-row > a { color: var(--accent); }
+.intro-footer-row>a {
+  color: var(--accent);
+}
 
 .intro-scroll-copy {
   display: flex;
@@ -266,11 +283,14 @@ a {
   aspect-ratio: 16 / 9;
   border-radius: 3px;
   overflow: hidden;
-  background: linear-gradient(135deg, rgba(20, 20, 20, 0.8) 0%, rgba(40, 40, 40, 0.6) 100%);
   box-shadow:
-    0 0 40px rgba(245, 214, 79, 0.08),
-    inset 0 0 40px rgba(0, 0, 0, 0.5);
+    0 0 50px rgba(0, 0, 0, 0.45);
   border: none;
+  transition: transform 0.35s ease;
+}
+
+.portfolio-video-wrap:hover {
+  transform: scale(1.02);
 }
 
 .portfolio-video-wrap iframe {
@@ -279,6 +299,7 @@ a {
   width: 100%;
   height: 100%;
   border: none;
+
 }
 
 .portfolio-text {
@@ -398,5 +419,146 @@ a {
 
   .intro-scroll-copy {
     align-items: flex-start;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+
+    opacity: 0.005;
+
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.7'/%3E%3C/svg%3E");
+
+    mix-blend-mode: soft-light;
+  }
+
+  /* =========================================
+   MOBILE LAYOUT
+   ========================================= */
+
+  @media (max-width: 768px) {
+
+    html,
+    body {
+      overflow-x: hidden;
+    }
+
+    .scroll-spacer {
+      display: none;
+    }
+
+    .timeline-wrap {
+      position: relative;
+      width: 100%;
+      height: auto;
+      overflow: visible;
+    }
+
+    .horizontal-shell,
+    .horizontal-stage {
+      position: relative;
+      width: 100%;
+      height: auto;
+      overflow: visible;
+    }
+
+    .horizontal-track {
+      display: block;
+      width: 100%;
+      height: auto;
+      transform: none !important;
+      filter: none !important;
+    }
+
+    /* Intro */
+
+    .intro-screen {
+      position: relative;
+      width: 100%;
+      min-height: 100svh;
+      height: auto;
+    }
+
+    /* Projects */
+
+    .h-panel {
+      width: 100%;
+      height: auto;
+      min-height: auto;
+    }
+
+    .portfolio-section {
+      position: relative;
+      width: 100%;
+      min-height: auto;
+      padding: 80px 20px;
+    }
+
+    .portfolio-inner {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    /* Video */
+
+    .portfolio-video-wrap {
+      width: 100%;
+      max-width: none;
+      aspect-ratio: 16 / 9;
+    }
+
+    .portfolio-video-wrap:hover {
+      transform: none;
+    }
+
+    /* Project information */
+
+    .portfolio-text {
+      width: 100%;
+    }
+
+    .portfolio-title {
+      font-size: clamp(2rem, 10vw, 4rem);
+      line-height: 0.95;
+    }
+
+    .portfolio-desc {
+      max-width: 90%;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* Keep the coordinate / label quiet */
+
+    .portfolio-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+    }
+
+    /* Contact */
+
+    .contact-section {
+      width: 100%;
+      min-height: 100svh;
+      padding: 80px 20px;
+    }
+
+    /* Background animation */
+
+    .dotted-path {
+      opacity: 0.35;
+    }
+
+    /* Progress indicator */
+
+    .progress-indicator {
+      display: none;
+    }
+
   }
 }
