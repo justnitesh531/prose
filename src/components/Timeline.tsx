@@ -232,25 +232,33 @@ const FireflyAndBird: React.FC<{ scrollProgress: number }> = ({ scrollProgress }
   );
 };
 
-const PortfolioSection: React.FC<PortfolioItem> = ({ id, label, title, description, youtubeId }) => (
-  <section className="h-panel portfolio-section" id={id}>
-    <div className="portfolio-inner">
-      <div className="portfolio-video-wrap">
-        <iframe
-          src={`https://www.youtube.com/embed/${youtubeId}?rel=0&modestbranding=1`}
-          title={title}
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
-      </div>
-      <div className="portfolio-text">
-        <p className="portfolio-label">{label}</p>
-        <h2 className="portfolio-title">{title}</h2>
-        <p className="portfolio-desc">{description}</p>
-      </div>
+const PortfolioSection: React.FC<PortfolioItem & { index: number }> = ({
+  id,
+  label,
+  title,
+  description,
+  youtubeId,
+  index,
+}) => (<section className="h-panel portfolio-section" id={id}>
+  <div className="portfolio-inner">
+    <div className="portfolio-video-wrap">
+      <iframe
+        src={`https://www.youtube.com/embed/${youtubeId}?rel=0&modestbranding=1`}
+        title={title}
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      />
     </div>
-  </section>
+    <div className="portfolio-text">
+      <p className="portfolio-label">
+        [{String(index + 1).padStart(2, '0')}] {label}
+      </p>
+      <h2 className="portfolio-title">{title}</h2>
+      <p className="portfolio-desc">{description}</p>
+    </div>
+  </div>
+</section>
 );
 
 const ContactSection: React.FC = () => (
@@ -388,8 +396,8 @@ export const Timeline: React.FC<TimelineProps> = ({ data }) => {
                   </div>
                 </section>
 
-                {data.map((item) => (
-                  <PortfolioSection key={item.id} {...item} />
+                {data.map((item, index) => (
+                  <PortfolioSection key={item.id} {...item} index={index} />
                 ))}
 
                 <ContactSection />
