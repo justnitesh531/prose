@@ -400,6 +400,12 @@
                     .intro-scroll-copy span:nth-child(3) {
                         display: none !important;
                     }
+
+                    @media (max-width: 900px) {
+                        .timeline-page>canvas {
+                            display: none !important;
+                        }
+                    }
                 }
             }
         }
