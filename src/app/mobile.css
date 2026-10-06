@@ -1,0 +1,407 @@
+/* =========================================================
+   PROSE MOBILE
+   Mobile-first presentation
+   ========================================================= */
+
+@media (max-width: 900px) {
+    /* =========================================================
+   ATMOSPHERE
+   Keep the desktop visual language on mobile
+   ========================================================= */
+
+    /* =========================================================
+   ATMOSPHERE
+   Mobile keeps the black background.
+   Desktop atmosphere is untouched.
+   ========================================================= */
+    /* ---------- Mobile bird / fireflies ---------- */
+
+
+
+    /* ---------- Mobile dotted line ---------- */
+
+    .timeline-page::before {
+        content: "";
+        position: fixed;
+        left: 0;
+        top: 50%;
+        width: 100vw;
+        height: 260px;
+        transform: translateY(-50%);
+        pointer-events: none;
+        z-index: 0;
+
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0,50 C35,120 65,-20 100,50' fill='none' stroke='white' stroke-opacity='0.2' stroke-width='2' stroke-dasharray='2 3' vector-effect='non-scaling-stroke' /%3E%3C/svg%3E");
+
+        background-size: 100vw 260px;
+        background-repeat: repeat-x;
+        animation: driftWave 8s linear infinite;
+    }
+
+    .timeline-page {
+        position: relative;
+        background: #000;
+    }
+
+    .timeline-wrap {
+        position: relative;
+        z-index: 2;
+    }
+
+    .horizontal-track {
+        position: relative;
+        z-index: 2;
+    }
+
+    .h-panel {
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* ---------- Base ---------- */
+
+    /* ---------- Base ---------- */
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    body {
+        -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---------- Disable desktop horizontal system ---------- */
+
+    .scroll-spacer {
+        display: none;
+    }
+
+    .timeline-wrap {
+        width: 100%;
+        height: auto;
+        overflow: visible;
+        padding: 0;
+    }
+
+    .horizontal-shell,
+    .horizontal-stage {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        overflow: visible;
+    }
+
+    .horizontal-track {
+        display: block;
+        width: 100%;
+        height: auto;
+        transform: none !important;
+        filter: none !important;
+        will-change: auto;
+        position: relative;
+        z-index: 0;
+    }
+
+    .h-panel {
+        display: flex;
+        width: 100%;
+        min-width: 0;
+        height: auto;
+        min-height: 100svh;
+        flex: none;
+        box-sizing: border-box;
+    }
+
+    /* =========================================================
+     LANDING
+     ========================================================= */
+
+    .intro-screen {
+        min-height: 100svh;
+        padding: 20px 18px 30px;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+    }
+
+    .utility-row {
+        width: 100%;
+        grid-template-columns: 1fr;
+        gap: 6px;
+        font-size: 9px;
+        line-height: 1.4;
+        letter-spacing: 0.12em;
+    }
+
+    .utility-row>div {
+        justify-content: center;
+    }
+
+    .intro-hero-grid {
+        width: 100%;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .intro-title-wrap {
+        width: 100%;
+    }
+
+    .intro-label {
+        font-size: 9px;
+        letter-spacing: 0.16em;
+        margin-bottom: 14px;
+    }
+
+    .intro-block {
+        font-size: clamp(4rem, 17vw, 6.5rem);
+        line-height: 0.82;
+        letter-spacing: -0.025em;
+    }
+
+    .intro-footer-row {
+        position: static;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 22px;
+        font-size: 9px;
+        letter-spacing: 0.12em;
+        text-align: center;
+    }
+
+    .intro-footer-row>a {
+        padding-bottom: 4px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .intro-scroll-copy {
+        align-items: center;
+        gap: 5px;
+    }
+
+    .intro-scroll-copy span:nth-child(2) {
+        font-size: 1.15rem;
+    }
+
+    .intro-scroll-copy span:nth-child(3) {
+        max-width: 280px;
+        font-size: 9px;
+        line-height: 1.5;
+    }
+
+    /* =========================================================
+     PROJECT SECTIONS
+     ========================================================= */
+
+    .portfolio-section {
+        min-height: auto;
+        padding: 45px 18px 55px;
+        justify-content: flex-start;
+    }
+
+    .portfolio-inner {
+        width: 100%;
+        height: auto;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    /* Video */
+
+    .portfolio-video-wrap {
+        width: 100%;
+        max-width: none;
+        aspect-ratio: 16 / 9;
+        border-radius: 2px;
+        overflow: hidden;
+        box-shadow:
+            0 20px 60px rgba(0, 0, 0, 0.55),
+            0 0 80px rgba(255, 255, 255, 0.035);
+    }
+
+    .portfolio-video-wrap:hover {
+        transform: none;
+    }
+
+    /* Project information */
+
+    .portfolio-text {
+        width: 100%;
+        max-width: none;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .portfolio-label {
+        font-size: 9px;
+        letter-spacing: 0.16em;
+    }
+
+    .portfolio-title {
+        font-size: clamp(1.9rem, 9vw, 3.2rem);
+        line-height: 0.92;
+        letter-spacing: 0;
+        margin: 0;
+    }
+
+    .portfolio-desc {
+        max-width: 94%;
+        margin-top: 4px;
+        color: #aaa;
+        font-size: 0.86rem;
+        line-height: 1.6;
+    }
+
+    /* =========================================================
+     CONTACT / END
+     ========================================================= */
+
+    .contact-section {
+        min-height: 100svh;
+        padding: 60px 18px;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .contact-inner {
+        width: 100%;
+        height: auto;
+        padding: 0;
+        gap: 12px;
+    }
+
+    .month-id {
+        font-size: 9px;
+        letter-spacing: 0.16em;
+        margin-bottom: 8px;
+    }
+
+    .month-main {
+        font-size: clamp(3rem, 13vw, 5.5rem);
+        line-height: 0.86;
+        letter-spacing: -0.025em;
+        margin-bottom: 20px;
+    }
+
+    .contact-links {
+        gap: 11px;
+        margin-top: 12px;
+    }
+
+    .contact-links a {
+        font-size: 0.9rem;
+    }
+
+    .contact-location {
+        margin-top: 22px;
+        font-size: 9px;
+        letter-spacing: 0.16em;
+    }
+
+    /* ---------- Mobile grain ---------- */
+
+    body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0.018;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.7'/%3E%3C/svg%3E");
+        mix-blend-mode: soft-light;
+    }
+
+    @media (max-width: 900px) {
+        .timeline-page::after {
+            content: "";
+            position: fixed;
+            left: 15%;
+            top: 38%;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+
+            background: rgba(255, 255, 220, 1);
+
+            box-shadow:
+                0 0 4px 1px rgba(245, 214, 79, 0.65),
+                57vw -8vh 0 0 rgba(255, 255, 220, 0.9),
+                27vw 27vh 0 0 rgba(255, 255, 220, 0.8),
+                73vw 32vh 0 0 rgba(255, 255, 220, 0.9),
+                10vw 44vh 0 0 rgba(255, 255, 220, 0.7),
+                43vw -20vh 0 0 rgba(255, 255, 220, 0.8),
+                78vw -18vh 0 0 rgba(255, 255, 220, 0.75),
+                -8vw 30vh 0 0 rgba(255, 255, 220, 0.7);
+
+            filter:
+                drop-shadow(0 0 3px rgba(245, 214, 79, 0.8)) drop-shadow(0 0 7px rgba(245, 214, 79, 0.35));
+
+            animation: fireflyShine 2.8s ease-in-out infinite alternate;
+        }
+
+        @keyframes fireflyShine {
+            0% {
+                opacity: 0.35;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.45;
+            }
+        }
+    }
+
+    @media (max-width: 900px) {
+        .portfolio-title {
+            font-size: 25px !important;
+            line-height: 1.05 !important;
+        }
+
+        @media (max-width: 900px) {
+            .scroll-indicator {
+                writing-mode: initial !important;
+                transform: none !important;
+                flex-direction: column !important;
+            }
+
+            @media (max-width: 900px) {
+                .intro-scroll-copy {
+                    flex-direction: column !important;
+                    align-items: flex-end !important;
+                    gap: 4px !important;
+                }
+
+                .intro-scroll-copy span:nth-child(2) {
+                    font-size: 0 !important;
+                }
+
+                .intro-scroll-copy span:nth-child(2)::after {
+                    content: "This way ↓";
+                    font-size: 12px;
+                }
+
+                @media (max-width: 900px) {
+                    .intro-scroll-copy span:nth-child(3) {
+                        display: none !important;
+                    }
+                }
+            }
+        }
+    }
+}
