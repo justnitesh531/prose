@@ -1,0 +1,58 @@
+.section {
+  width: 100%;
+  overflow: hidden;
+  padding: clamp(2.5rem, 5vw, 4rem) clamp(1.25rem, 4vw, 4rem);
+}
+
+.header {
+  margin-bottom: 1.25rem;
+}
+
+.eyebrow {
+  margin-bottom: 0.5rem;
+}
+
+.viewport {
+  width: calc(100% + clamp(1.25rem, 4vw, 4rem));
+  overflow: hidden;
+}
+
+.track,
+.sequence {
+  display: flex;
+  width: max-content;
+}
+
+.track {
+  gap: 1rem;
+  animation: slide-left 100s linear infinite;
+}
+
+.viewport:hover .track,
+.viewport:focus-within .track {
+  animation-play-state: paused;
+}
+
+.sequence {
+  gap: 1rem;
+}
+
+.sequence img {
+  display: block;
+  width: clamp(14rem, 22vw, 21rem);
+  aspect-ratio: 4 / 3;
+  flex: 0 0 auto;
+  object-fit: cover;
+}
+
+@keyframes slide-left {
+  to {
+    transform: translateX(calc(-50% - 0.5rem));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation-play-state: paused;
+  }
+}
